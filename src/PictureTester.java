@@ -93,8 +93,24 @@ public static void testMirrorAngle(){
     beach.mirrorAngle();
     beach.explore();
   }
-  /** Main method for testing.  Every class can have a main
-    * method in Java */
+  public static void testMirrorSelect(){
+    Picture temple = new Picture("temple.jpg");
+    temple.explore();
+    temple.mirrorSelect();
+    temple.explore();
+  }
+  public static void testMirrorArms(){
+    Picture snow = new Picture("snowman.jpg");
+    snow.explore();
+    snow.mirrorArms();
+    snow.explore();
+  }
+  public static void testMirrorGull(){
+    Picture gull = new Picture("seagull.jpg");
+    gull.explore();
+    gull.mirrorGull();
+    gull.explore();
+  }
   public static void main(String[] args)
   {
     // uncomment a call here to run a test
@@ -111,10 +127,11 @@ public static void testMirrorAngle(){
     //testMirrorVerticalRTL();
     //testMirrorHoizontal();
     //testMirrorHoizontalBTT();
-    testMirrorAngle();
+    //testMirrorAngle();
+    //testMirrorSelect();
     //testMirrorTemple();
-    //testMirrorArms();
-    //testMirrorGull();
+   // testMirrorArms();
+    testMirrorGull();
     //testMirrorDiagonal();
     //testCollage();
     //testCopy();
