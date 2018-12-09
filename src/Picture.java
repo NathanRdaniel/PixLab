@@ -134,11 +134,84 @@ public class Picture extends SimplePicture {
 			for (Pixel pixelObj : rowArray) {
 				pixelObj.setGreen((pixelObj.getGreen())/3);
 				pixelObj.setBlue((pixelObj.getBlue())/2);
-				//pixelObj.setRed((pixelObj.getBlue())/2);
-				
+				//pixelObj.setRed((pixelObj.getBlue())/2);	
 			}
 		}
 	}
+	public void mirrorVerticalRTL() {
+		Pixel[][] pixels = this.getPixels2D();
+		Pixel leftPixel = null;
+		Pixel rightPixel = null;
+		int width = pixels[0].length;
+		for (int row = 0; row < pixels.length; row++) {
+			for (int col = 0; col < width / 2; col++) {
+				leftPixel = pixels[row][col];
+				rightPixel = pixels[row][width - 1 - col];
+				leftPixel.setColor(rightPixel.getColor());
+			}
+		}
+	}
+
+	public void mirrorHorizontal() {
+		Pixel[][] pixels = this.getPixels2D();
+		Pixel topPixel = null;
+		Pixel bottomPixel = null;
+		int colin = 0;
+		int leng = pixels.length;
+		int width = pixels[0].length;
+		for (int row = 0; row < leng/2; row++) {
+			for (int col = 0; col < width; col++) {
+				topPixel = pixels [row] [col];
+				bottomPixel = pixels [leng - 1 - row] [col];
+				bottomPixel.setColor(topPixel.getColor());
+			}
+		}
+	}
+	public void mirrorHorizontalBTT() {
+		Pixel[][] pixels = this.getPixels2D();
+		Pixel topPixel = null;
+		Pixel bottomPixel = null;
+		int colin = 0;
+		int leng = pixels.length;
+		int width = pixels[0].length;
+		for (int row = 0; row < leng/2; row++) {
+			for (int col = 0; col < width; col++) {
+				topPixel = pixels [row] [col];
+				bottomPixel = pixels [leng - 1 - row] [col];
+				topPixel.setColor(bottomPixel.getColor());
+			}
+		}
+	}
+	public void mirrorAngle() {
+		Pixel[][] pixels = this.getPixels2D();
+		Pixel leftPixel = null;
+		Pixel rightPixel = null;
+		int width = getWidth(); 
+    	int height = getHeight();
+		if (width > height){
+	  width = height;
+		}
+		else if (height > width){
+	  height = width;
+		}
+	int lastX = width - 1; 
+    int maxX = lastX;
+    int lastY = height - 1; 
+	
+	for (int y = 0; y < lastY; y++,maxX--)
+    {
+      // loop through the columns
+      for (int x = 0; x < lastX; x++)
+      {	
+        leftPixel = getPixel(x,y);
+        rightPixel = getPixel((lastX - y), (lastY - x));
+		rightPixel.setColor(leftPixel.getColor());
+	
+      }
+    }
+}
+
+	
 	/**
 	 * Method that mirrors the picture around a vertical mirror in the center of
 	 * the picture from left to right
@@ -156,6 +229,7 @@ public class Picture extends SimplePicture {
 			}
 		}
 	}
+	
 
 	/** Mirror just part of a picture of a temple */
 	public void mirrorTemple() {
