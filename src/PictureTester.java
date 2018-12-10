@@ -111,8 +111,14 @@ public static void testMirrorAngle(){
     gull.mirrorGull();
     gull.explore();
   }
+  public static void testMyCollage(){
+    Picture canvas = new Picture("640x480.jpg");
+    canvas.myCollage();
+    canvas.explore();
+  }
   public static void main(String[] args)
   {
+   
     // uncomment a call here to run a test
     // and comment out the ones you don't want
     // to run
@@ -131,9 +137,10 @@ public static void testMirrorAngle(){
     //testMirrorSelect();
     //testMirrorTemple();
    // testMirrorArms();
-    testMirrorGull();
+    //testMirrorGull();
     //testMirrorDiagonal();
     //testCollage();
+    testMyCollage();
     //testCopy();
     //testEdgeDetection();
     //testEdgeDetection2();

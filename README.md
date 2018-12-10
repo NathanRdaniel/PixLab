@@ -3,7 +3,7 @@
 ## Getting started
 
 Fork and clone the [PixLab repo](http://github.com/mvhs-apcs/PixLab).
-
+s
 ```
 $ git fetch origin
 $ git checkout a1
@@ -17,7 +17,7 @@ Make commits to this branch as you complete the steps outlined in the activity.
 
 ## Submitting
 
-Commit all local changes, then (replace # with the current activity number):
+Commit all local changes,  then (replace # with the current activity number):
 ```
 $ git push origin a#
 ```
