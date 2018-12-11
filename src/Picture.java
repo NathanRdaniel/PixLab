@@ -398,20 +398,61 @@ public void mirrorArms(){
 	public void edgeDetection(int edgeDist) {
 		Pixel leftPixel = null;
 		Pixel rightPixel = null;
+		Pixel topPixel = null;
+		Pixel bottomPixel = null;
 		Pixel[][] pixels = this.getPixels2D();
 		Color rightColor = null;
-		for (int row = 0; row < pixels.length; row++) {
+		Color bottomColor = null;
+		
+		/*for (int row = 0; row < pixels.length - 1; row++) {
 			for (int col = 0; col < pixels[0].length - 1; col++) {
 				leftPixel = pixels[row][col];
 				rightPixel = pixels[row][col + 1];
 				rightColor = rightPixel.getColor();
-				if (leftPixel.colorDistance(rightColor) > edgeDist)
+				if (leftPixel.colorDistance(rightColor) > edgeDist){
 					leftPixel.setColor(Color.BLACK);
-				else
+				}else{
 					leftPixel.setColor(Color.WHITE);
+				}
+			}
+
+		}*/
+		for (int row = 0; row < pixels.length - 1; row++) {
+			for (int col = 0; col < pixels[0].length - 1; col++) {
+				topPixel = pixels[row][col];
+				bottomPixel = pixels[row + 1][col];
+				bottomColor = bottomPixel.getColor();
+				if(topPixel.colorDistance(bottomColor) > edgeDist){
+					topPixel.setColor(Color.BLACK);
+				}else{
+					topPixel.setColor(Color.WHITE);
+				}
 			}
 		}
 	}
+	public void edgeDetection2(int edgeDist){
+		Pixel topPixel = null;
+		Pixel bottomPixel = null;
+		Pixel[][] pixels = this.getPixels2D();
+		Color bottomColor = null;
+		int topAverage = 0;
+		int bottomAverage = 0;
+		for (int row = 0; row < pixels.length - 1; row++) {
+			for (int col = 0; col < pixels[0].length - 1; col++) {
+				topPixel = pixels[row][col];
+				bottomPixel = pixels[row + 1][col];
+				bottomColor = bottomPixel.getColor();
+				topAverage = topPixel.getRed() + topPixel.getGreen() + topPixel.getBlue();
+				bottomAverage = bottomPixel.getRed() + bottomPixel.getGreen() + bottomPixel.getBlue();
+				if((topAverage  - bottomAverage) > edgeDist){
+					topPixel.setColor(Color.WHITE);
+				}else{
+					topPixel.setColor(Color.BLACK);
+				}
+			}
+		}
+	}
+
 
 	/*
 	 * Main method for testing - each class in Java can have a main method

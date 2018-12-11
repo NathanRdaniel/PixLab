@@ -116,6 +116,12 @@ public static void testMirrorAngle(){
     canvas.myCollage();
     canvas.explore();
   }
+  public static void testEdgeDetection2()
+  {
+    Picture swan = new Picture("beach.jpg");
+    swan.edgeDetection(15);
+    swan.explore();
+  }
   public static void main(String[] args)
   {
    
@@ -140,10 +146,10 @@ public static void testMirrorAngle(){
     //testMirrorGull();
     //testMirrorDiagonal();
     //testCollage();
-    testMyCollage();
+    //testMyCollage();
     //testCopy();
     //testEdgeDetection();
-    //testEdgeDetection2();
+    testEdgeDetection2();
     //testChromakey();
     //testEncodeAndDecode();
     //testGetCountRedOverValue(250);
